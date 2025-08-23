@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import profileImg from "../assects/jpg/logo.jpg";
@@ -99,15 +99,16 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8"
             variants={fadeInUp}
           >
+            {/* Button replaced */}
             <button className="border border-green-500 text-green-500 px-6 py-3 rounded-full font-semibold hover:bg-green-400 hover:text-black hover:scale-105 transition duration-300">
-              Download CV
+              Contact Me
             </button>
 
             <div className="flex gap-6 text-2xl">
               {[
-                { icon: <FaGithub />, href: "#" },
                 { icon: <FaLinkedin />, href: "#" },
                 { icon: <FaTwitter />, href: "#" },
+                { icon: <FaInstagram />, href: "#" },
               ].map((item, i) => (
                 <motion.a
                   key={i}
