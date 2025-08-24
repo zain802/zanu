@@ -128,7 +128,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Phone</p>
-                <p className="font-semibold">(+40) 321 654 876</p>
+                <p className="font-semibold">(+40) 31234567</p>
               </div>
             </div>
 
@@ -138,7 +138,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Email</p>
-                <p className="font-semibold">youremail@gmail.com</p>
+                <p className="font-semibold">contact.zainrafiq@gmail.com</p>
               </div>
             </div>
 
@@ -148,7 +148,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Address</p>
-                <p className="font-semibold">Code Corner, Tech Town 13579</p>
+                <p className="font-regular">Fasilabad, Pakistan</p>
               </div>
             </div>
           </motion.div>

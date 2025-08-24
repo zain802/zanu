@@ -21,7 +21,7 @@ const Navbar = () => {
       {/* Logo */}
       <div className="text-2xl font-bold tracking-wide">
         <Link href="/" className="hover:text-green-500 transition">
-          Luke<span className="text-green-500">.</span>
+          ZANU<span className="text-green-500">.</span>
         </Link>
       </div>
 
@@ -78,7 +78,7 @@ const Navbar = () => {
       >
         <div className="flex justify-between items-center p-6 border-b border-gray-700">
           <span className="text-xl font-bold">
-            Luke<span className="text-green-500">.</span>
+            ZANU<span className="text-green-500">.</span>
           </span>
           <button onClick={() => setIsOpen(false)} className="text-2xl">
             <FiX />
