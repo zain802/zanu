@@ -3,44 +3,62 @@
 import { motion } from "framer-motion";
 import {
   FaCode,
-  FaPaintBrush,
-  FaMobileAlt,
   FaServer,
-  FaShoppingCart,
-  FaSearch,
+  FaDesktop,
+  FaLaptopCode,
+  FaBlog,
+  FaPalette,
+  FaLock,
+  FaRocket,
+  FaTachometerAlt,
 } from "react-icons/fa";
 
 export default function Services() {
   const services = [
     {
-      title: "Web Development",
-      desc: "Modern, fast, and scalable websites with React / Next.js and clean architectures.",
-      icon: <FaCode className="text-3xl text-green-400" />,
-    },
-    {
-      title: "UI/UX Design",
-      desc: "Pixel-perfect, user-centric interfaces with smooth flows and consistent design systems.",
-      icon: <FaPaintBrush className="text-3xl text-green-400" />,
-    },
-    {
-      title: "Responsive Design",
-      desc: "Seamless experiences across mobile, tablet, and desktop with robust layouts.",
-      icon: <FaMobileAlt className="text-3xl text-green-400" />,
+      title: "Frontend Development",
+      desc: "I build pixel-perfect, responsive user interfaces using React, Bootstrap, and GSAP — ensuring every website looks modern, runs fast, and works seamlessly across all devices.",
+      icon: <FaDesktop className="text-3xl text-green-400" />,
     },
     {
       title: "Backend Development",
-      desc: "Secure and optimized APIs with Node.js, Express, and scalable databases.",
+      desc: "Secure, scalable backend systems using PHP, Node.js, and MySQL — from building REST APIs to managing complex databases and server-side logic.",
       icon: <FaServer className="text-3xl text-green-400" />,
     },
     {
-      title: "E-Commerce Solutions",
-      desc: "High-conversion online stores with modern integrations and payment gateways.",
-      icon: <FaShoppingCart className="text-3xl text-green-400" />,
+      title: "Full Stack Web Applications",
+      desc: "From UI to database, I deliver complete web solutions with smooth frontend-backend integration — tailored to your business logic and user experience.",
+      icon: <FaLaptopCode className="text-3xl text-green-400" />,
     },
     {
-      title: "SEO & Performance",
-      desc: "Boost visibility and speed with SEO strategies and performance optimization.",
-      icon: <FaSearch className="text-3xl text-green-400" />,
+      title: "Portfolio & Business Websites",
+      desc: "Custom-designed personal or business websites — fully responsive, animated, and SEO-ready to showcase your brand and impress your audience.",
+      icon: <FaCode className="text-3xl text-green-400" />,
+    },
+    {
+      title: "Blog & CMS Platforms",
+      desc: "Dynamic blog systems with admin panels — manage content, users, comments, and categories easily, with full responsiveness and performance tuning.",
+      icon: <FaBlog className="text-3xl text-green-400" />,
+    },
+    {
+      title: "UI/UX to Code Conversion",
+      desc: "I convert your Figma, Adobe XD, or PSD designs into clean, responsive, and functional frontend code — matching your exact UI vision.",
+      icon: <FaPalette className="text-3xl text-green-400" />,
+    },
+    {
+      title: "Authentication & User Management",
+      desc: "Implement secure user login systems, registration forms, JWT tokens, profile pages, and role-based access — all built with best security practices.",
+      icon: <FaLock className="text-3xl text-green-400" />,
+    },
+    {
+      title: "Website Optimization & Maintenance",
+      desc: "Speed up, secure, and update your site with performance audits, SEO improvements, bug fixes, and ongoing maintenance support.",
+      icon: <FaRocket className="text-3xl text-green-400" />,
+    },
+    {
+      title: "Custom Dashboards & Admin Panels",
+      desc: "Interactive dashboards with charts, filters, and CRUD functionality — perfect for blogs, portfolios, CMS, or business data management.",
+      icon: <FaTachometerAlt className="text-3xl text-green-400" />,
     },
   ];
 
@@ -83,8 +101,10 @@ export default function Services() {
                            hover:from-green-500/40 hover:to-transparent transition-colors duration-500"
               >
                 <div
-                  className="relative h-full rounded-2xl bg-[#141414] border border-white/10 
+                  className="relative h-full rounded-2xl bg-[#141414]/70 border border-white/10 
                              p-8 lg:p-9 overflow-hidden transition-all duration-500 
+                             backdrop-blur-[2px] md:backdrop-blur-none
+                             group-hover:backdrop-blur-[6px]
                              group-hover:-translate-y-2 group-hover:shadow-[0_30px_70px_-20px_rgba(0,255,128,0.35)]
                              group-hover:border-green-500/40"
                 >
