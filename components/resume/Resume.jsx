@@ -5,7 +5,6 @@ import {
   Layers,
   GitBranch,
   Monitor,
-  Cpu,
   Globe,
   Server,
   Zap,
@@ -20,13 +19,22 @@ export default function Resume() {
   const skills = [
     { name: "React.js", icon: Monitor, level: "Expert", percent: 95 },
     { name: "Next.js", icon: Layers, level: "Advanced", percent: 90 },
-    { name: "Node.js", icon: Cpu, level: "Advanced", percent: 85 },
     { name: "TailwindCSS", icon: Code2, level: "Advanced", percent: 88 },
     { name: "Bootstrap", icon: Globe, level: "Advanced", percent: 82 },
     { name: "PHP & MySQL", icon: Server, level: "Intermediate", percent: 80 },
     { name: "Git / GitHub", icon: GitBranch, level: "Advanced", percent: 92 },
-    { name: "Animations (GSAP, Framer Motion)", icon: Zap, level: "Advanced", percent: 85 },
-    { name: "Cloud Deployment (Vercel, Netlify)", icon: Cloud, level: "Intermediate", percent: 78 },
+    {
+      name: "Animations (GSAP, Framer Motion)",
+      icon: Zap,
+      level: "Advanced",
+      percent: 85,
+    },
+    {
+      name: "Cloud Deployment (Vercel, Netlify)",
+      icon: Cloud,
+      level: "Intermediate",
+      percent: 78,
+    },
   ];
 
   const tabs = ["experience", "education", "skills", "about"];
@@ -49,7 +57,8 @@ export default function Resume() {
           </h2>
           <div className="mx-auto mt-4 h-[2px] w-32 bg-gradient-to-r from-green-500/80 via-green-500/30 to-transparent rounded-full" />
           <p className="text-gray-400 max-w-2xl mx-auto mt-6">
-            A blend of experience, knowledge and technical expertise to build impactful solutions.
+            A blend of academic learning, technical expertise, and hands-on
+            project experience — shaping me into a well-rounded web developer.
           </p>
         </motion.div>
 
@@ -86,12 +95,12 @@ export default function Resume() {
                 {
                   title: "Full Stack Developer @ TechVision",
                   date: "2023 - Present",
-                  desc: "Developing scalable full-stack applications with React, Next.js, Node.js, and PHP/MySQL. Delivered enterprise dashboards, API systems, and optimized complex business workflows.",
+                  desc: "Developing scalable full-stack applications with React, Next.js, and PHP/MySQL. Delivered enterprise dashboards, API systems, and optimized business workflows.",
                 },
                 {
                   title: "Frontend Developer (Freelance)",
                   date: "2022 - 2023",
-                  desc: "Crafted modern responsive websites using React, TailwindCSS, Bootstrap, and GSAP animations. Built portfolios, business websites, and landing pages with pixel-perfect UI.",
+                  desc: "Crafted modern responsive websites using React, TailwindCSS, Bootstrap, and GSAP. Built portfolios, landing pages, and business websites with pixel-perfect UI.",
                 },
               ].map((exp, i) => (
                 <motion.div
@@ -101,7 +110,9 @@ export default function Resume() {
                   transition={{ delay: i * 0.2 }}
                   className="p-6 bg-[#141414]/70 backdrop-blur-md rounded-2xl shadow-lg border-l-4 border-green-500 hover:scale-105 hover:shadow-[0_10px_25px_rgba(0,255,128,0.3)] transition-transform duration-300"
                 >
-                  <h3 className="text-xl font-semibold text-green-400">{exp.title}</h3>
+                  <h3 className="text-xl font-semibold text-green-400">
+                    {exp.title}
+                  </h3>
                   <p className="text-gray-400 mt-1">{exp.date}</p>
                   <p className="text-gray-300 mt-4">{exp.desc}</p>
                 </motion.div>
@@ -114,14 +125,14 @@ export default function Resume() {
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 {
-                  title: "BS Computer Science",
-                  date: "Govt. University | 2024 - Continue",
-                  desc: "Currently pursuing Computer Science with specialization in Web Development, Cloud Computing, and Software Engineering.",
+                  title: "Intermediate in Pre-Engineering",
+                  date: "Govt. College | 2022 - 2023",
+                  desc: "Focused on Mathematics, Physics, and Computer Science. Built strong logical & analytical foundations.",
                 },
                 {
-                  title: "Intermediate in Pre-Engineering",
-                  date: "Govt. College | 2020 - 2022",
-                  desc: "Focused on Mathematics, Physics, and Computer Science. Built strong logical & analytical foundation for programming.",
+                  title: "Matriculation (Science)",
+                  date: "Govt. School | 2021",
+                  desc: "Completed Matriculation in Science group with subjects including Physics, Chemistry, Biology, and Mathematics.",
                 },
               ].map((edu, i) => (
                 <motion.div
@@ -131,7 +142,9 @@ export default function Resume() {
                   transition={{ delay: i * 0.2 }}
                   className="p-6 bg-[#141414]/70 backdrop-blur-md rounded-2xl shadow-lg border-t-4 border-green-500 hover:scale-105 hover:shadow-[0_10px_25px_rgba(0,255,128,0.3)] transition-transform duration-300"
                 >
-                  <h3 className="text-xl font-semibold text-green-400">{edu.title}</h3>
+                  <h3 className="text-xl font-semibold text-green-400">
+                    {edu.title}
+                  </h3>
                   <p className="text-gray-400 mt-1">{edu.date}</p>
                   <p className="text-gray-300 mt-4">{edu.desc}</p>
                 </motion.div>
@@ -148,78 +161,85 @@ export default function Resume() {
             </div>
           )}
 
-         {/* About Me */}
-{activeTab === "about" && (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    className="bg-[#141414]/70 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-green-500/20"
-  >
-    <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 items-center">
-      {/* Left Side Image */}
-      <div className="flex justify-center">
-        <img
-          src="/me.jpg"
-          alt="Profile"
-          className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 object-cover rounded-full border-4 border-green-500 shadow-[0_30px_70px_-20px_rgba(0,255,128,0.35)]"
-        />
-      </div>
+          {/* About Me */}
+          {activeTab === "about" && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="bg-[#141414]/70 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-green-500/20"
+            >
+              <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 items-center">
+                {/* Left Side Image */}
+                <div className="flex justify-center">
+                  <img
+                    src="/me.jpg"
+                    alt="Profile"
+                    className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 object-cover rounded-full border-4 border-green-500 shadow-[0_30px_70px_-20px_rgba(0,255,128,0.35)]"
+                  />
+                </div>
 
-      {/* Right Side Content */}
-      <div className="text-center lg:text-left mt-6 lg:mt-0">
-        <h2 className="text-3xl font-bold text-green-400 mb-6">About Me</h2>
-        <p className="text-gray-300 leading-relaxed">
-          Hello, I’m <span className="text-green-400 font-semibold">Zain Rafiq</span>, 
-          a passionate Full Stack Developer with 2+ years of experience building 
-          modern, scalable web applications.
-        </p>
+                {/* Right Side Content */}
+                <div className="text-center lg:text-left mt-6 lg:mt-0">
+                  <h2 className="text-3xl font-bold text-green-400 mb-6">
+                    About Me
+                  </h2>
+                  <p className="text-gray-300 leading-relaxed">
+                    Hello, I’m{" "}
+                    <span className="text-green-400 font-semibold">
+                      Zain Rafiq
+                    </span>
+                    , a passionate Full Stack Developer with 1+ years of
+                    experience building modern, scalable web applications.
+                  </p>
 
-        <p className="text-gray-400 leading-relaxed  mt-4">
-          Skilled in React, Next.js, Node.js, PHP/MySQL, and cloud deployment platforms, 
-          I always focus on creating seamless user experiences with performance-driven 
-          coding and modern animations.
-        </p>
+                  <p className="text-gray-400 leading-relaxed mt-4">
+                    Skilled in React, Next.js, PHP/MySQL, and cloud deployment
+                    platforms, I always focus on creating seamless user
+                    experiences with performance-driven coding and smooth
+                    animations.
+                  </p>
 
-        <p className="text-gray-400 leading-relaxed mt-4">
-          Beyond coding, I love exploring new technologies, contributing to open-source projects, 
-          and sharing my knowledge with others. My goal is to bring creativity, innovation, and 
-          precision to every project I work on.
-        </p>
+                  <p className="text-gray-400 leading-relaxed mt-4">
+                    Beyond coding, I enjoy exploring new technologies,
+                    contributing to open-source, and sharing knowledge. My goal
+                    is to bring creativity, innovation, and precision to every
+                    project I work on.
+                  </p>
 
-        {/* Button + Social Icons */}
-        <div className="mt-6 flex flex-col md:flex-row md:items-center gap-4 justify-center lg:justify-start">
-          <button className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-full shadow-lg hover:shadow-[0_10px_20px_rgba(0,255,128,0.4)] transition-all duration-300">
-            Download CV
-          </button>
+                  {/* Button + Social Icons */}
+                  <div className="mt-6 flex flex-col md:flex-row md:items-center gap-4 justify-center lg:justify-start">
+                    <button className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-full shadow-lg hover:shadow-[0_10px_20px_rgba(0,255,128,0.4)] transition-all duration-300">
+                      Download CV
+                    </button>
 
-          <div className="flex gap-6 text-2xl justify-center lg:justify-start">
-            {[
-              { icon: <FaLinkedin />, href: "#" },
-              { icon: <FaTwitter />, href: "#" },
-              { icon: <FaInstagram />, href: "#" },
-            ].map((item, i) => (
-              <motion.a
-                key={i}
-                href={item.href}
-                className="w-12 h-12 flex items-center justify-center rounded-full 
+                    <div className="flex gap-6 text-2xl justify-center lg:justify-start">
+                      {[
+                        { icon: <FaLinkedin />, href: "#" },
+                        { icon: <FaTwitter />, href: "#" },
+                        { icon: <FaInstagram />, href: "#" },
+                        { icon: <FaGithub />, href: "#" },
+                      ].map((item, i) => (
+                        <motion.a
+                          key={i}
+                          href={item.href}
+                          className="w-12 h-12 flex items-center justify-center rounded-full 
                          bg-black/80 border border-green-500/40 backdrop-blur-md
                          shadow-lg shadow-green-500/10 
                          hover:border-green-500 hover:shadow-green-500/30
                          transition-all duration-300"
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                {item.icon}
-              </motion.a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </motion.div>
-)}
-
+                          whileHover={{ scale: 1.2 }}
+                          whileTap={{ scale: 0.9 }}
+                        >
+                          {item.icon}
+                        </motion.a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
     </section>

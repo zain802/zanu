@@ -34,6 +34,8 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <motion.form
+            action="https://formspree.io/f/meolqrqy" // <-- Tumhara Formspree endpoint
+            method="POST"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
@@ -47,7 +49,9 @@ export default function Contact() {
                 </label>
                 <input
                   type="text"
+                  name="firstName"
                   placeholder="Enter first name"
+                  required
                   className="w-full p-3 rounded-[50px] bg-[#0d0d0d] border border-gray-700 text-white focus:outline-none focus:border-green-500 transition"
                 />
               </div>
@@ -57,7 +61,9 @@ export default function Contact() {
                 </label>
                 <input
                   type="text"
+                  name="lastName"
                   placeholder="Enter last name"
+                  required
                   className="w-full p-3 rounded-[50px] bg-[#0d0d0d] border border-gray-700 text-white focus:outline-none focus:border-green-500 transition"
                 />
               </div>
@@ -70,7 +76,9 @@ export default function Contact() {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
+                  required
                   className="w-full p-3 rounded-[50px] bg-[#0d0d0d] border border-gray-700 text-white focus:outline-none focus:border-green-500 transition"
                 />
               </div>
@@ -80,6 +88,7 @@ export default function Contact() {
                 </label>
                 <input
                   type="text"
+                  name="phone"
                   placeholder="Enter phone number"
                   className="w-full p-3 rounded-[50px] bg-[#0d0d0d] border border-gray-700 text-white focus:outline-none focus:border-green-500 transition"
                 />
@@ -91,8 +100,10 @@ export default function Contact() {
                 Your Message
               </label>
               <textarea
+                name="message"
                 placeholder="Write your message"
                 rows="5"
+                required
                 className="w-full p-4 rounded-[30px] bg-[#0d0d0d] border border-gray-700 text-white focus:outline-none focus:border-green-500 transition"
               ></textarea>
             </div>
@@ -148,7 +159,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Address</p>
-                <p className="font-regular">Fasilabad, Pakistan</p>
+                <p className="font-regular">Faisalabad, Pakistan</p>
               </div>
             </div>
           </motion.div>

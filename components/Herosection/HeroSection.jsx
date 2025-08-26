@@ -20,7 +20,7 @@ const fadeInUp = {
 };
 
 const HeroSection = () => {
-  const titles = ["Zain ul Abideen", "Web Developer", "Full Stack Engineer"];
+  const titles = ["Zain ul Abideen", "Web Developer", "Fronted Developer"];
 
   const [index, setIndex] = useState(0);
 
@@ -33,10 +33,10 @@ const HeroSection = () => {
 
   // Stats Data
   const stats = [
-    { number: 2, label: "Years of experience" },
-    { number: 26, label: "Projects completed" },
-    { number: 8, label: "Technologies mastered" },
-    { number: 500, label: "Code commits" },
+    { number: 1, label: "Years of experience" },
+    { number: 10, label: "Projects completed" },
+    { number: 5, label: "Technologies mastered" },
+    { number: 300, label: "Code commits" },
   ];
 
   return (
