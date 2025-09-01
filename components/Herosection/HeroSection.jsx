@@ -1,9 +1,18 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaInstagram,
+  FaYoutube,
+  FaFacebook,
+} from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import profileImg from "../assects/jpg/logo.jpg";
+import Projecthighlight from "../landingPage/Projecthighlight";
 
 const letterAnimation = {
   hidden: { opacity: 0, y: 50 },
@@ -40,6 +49,7 @@ const HeroSection = () => {
   ];
 
   return (
+    // <>
     <section id="home" className="bg-[#0d0d0d] text-white font-[Poppins] py-10">
       <div className="container mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-12 md:gap-16 px-6 md:px-12">
         {/* Left Text Content */}
@@ -89,9 +99,12 @@ const HeroSection = () => {
             className="text-gray-400 mb-8 text-base md:text-lg"
             variants={fadeInUp}
           >
-            I build modern, responsive web applications with clean, maintainable
-            code. Passionate about creating seamless digital experiences and
-            delivering innovative solutions as a Full Stack Web Developer.
+            I am a passionate Frontend Developer with experience in building
+            modern, responsive, and user-friendly web applications using
+            React.js, Next.js, and modern frameworks. With a solid understanding
+            of PHP & MySQL for backend development, I enjoy working across the
+            full stack to deliver seamless digital solutions. My focus is on
+            clean code, performance, and creating impactful user experiences.
           </motion.p>
 
           {/* Buttons + Social */}
@@ -101,14 +114,20 @@ const HeroSection = () => {
           >
             {/* Button replaced */}
             <button className="border border-green-500 text-green-500 px-6 py-3 rounded-full font-semibold hover:bg-green-400 hover:text-black hover:scale-105 transition duration-300">
-              Contact Me
+              <Link href="/contact">Contact Me</Link>
             </button>
-
             <div className="flex gap-6 text-2xl">
               {[
                 { icon: <FaLinkedin />, href: "#" },
-                { icon: <FaTwitter />, href: "#" },
-                { icon: <FaInstagram />, href: "#" },
+                // { icon: <FaTwitter />, href: "#" },
+                {
+                  icon: <FaInstagram />,
+                  href: "https://www.instagram.com/zain_codes5/",
+                },
+                {
+                  icon: <FaFacebook />,
+                  href: "https://www.facebook.com/profile.php?id=61579212897305",
+                },
               ].map((item, i) => (
                 <motion.a
                   key={i}
@@ -186,6 +205,8 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+    // <Projecthighlight />
+    // </>
   );
 };
 

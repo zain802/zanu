@@ -10,7 +10,13 @@ import {
   Zap,
   Cloud,
 } from "lucide-react";
-import { FaLinkedin, FaTwitter, FaInstagram, FaGithub } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaTwitter,
+  FaInstagram,
+  FaGithub,
+  FaFacebook,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Resume() {
@@ -37,7 +43,7 @@ export default function Resume() {
     },
   ];
 
-  const tabs = ["experience", "education", "skills", "about"];
+  const tabs = ["experience", "skills", "about"];
 
   return (
     <section
@@ -77,8 +83,6 @@ export default function Resume() {
             >
               {tab === "experience"
                 ? "Experience"
-                : tab === "education"
-                ? "Education"
                 : tab === "skills"
                 ? "Skills"
                 : "About Me"}
@@ -88,19 +92,24 @@ export default function Resume() {
 
         {/* Content */}
         <div className="mt-12 space-y-8">
-          {/* Experience */}
+          {/* Experience (with Education ) */}
           {activeTab === "experience" && (
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 {
-                  title: "Full Stack Developer @ TechVision",
+                  title: "Frontend Developer",
                   date: "2023 - Present",
-                  desc: "Developing scalable full-stack applications with React, Next.js, and PHP/MySQL. Delivered enterprise dashboards, API systems, and optimized business workflows.",
+                  desc: "Worked as a frontend developer for 1 year, building responsive, modern, and user-friendly websites with React, Next.js, TailwindCSS, and animations (GSAP, Framer Motion). Focused on creating seamless user experiences and performance-driven applications.",
                 },
                 {
-                  title: "Frontend Developer (Freelance)",
-                  date: "2022 - 2023",
-                  desc: "Crafted modern responsive websites using React, TailwindCSS, Bootstrap, and GSAP. Built portfolios, landing pages, and business websites with pixel-perfect UI.",
+                  title: "FSc Pre-Engineering",
+                  date: "Govt. College | 2021 - 2023",
+                  desc: "Studied Mathematics, Physics, and Computer Science. Built a strong foundation in problem-solving, logic, and analytical skills.",
+                },
+                {
+                  title: "Matriculation (Science)",
+                  date: "Govt. School | 2019 - 2021",
+                  desc: "Completed matriculation in the science group with core subjects including Physics, Chemistry, Mathematics, and Biology.",
                 },
               ].map((exp, i) => (
                 <motion.div
@@ -115,38 +124,6 @@ export default function Resume() {
                   </h3>
                   <p className="text-gray-400 mt-1">{exp.date}</p>
                   <p className="text-gray-300 mt-4">{exp.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          )}
-
-          {/* Education */}
-          {activeTab === "education" && (
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  title: "Intermediate in Pre-Engineering",
-                  date: "Govt. College | 2022 - 2023",
-                  desc: "Focused on Mathematics, Physics, and Computer Science. Built strong logical & analytical foundations.",
-                },
-                {
-                  title: "Matriculation (Science)",
-                  date: "Govt. School | 2021",
-                  desc: "Completed Matriculation in Science group with subjects including Physics, Chemistry, Biology, and Mathematics.",
-                },
-              ].map((edu, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.2 }}
-                  className="p-6 bg-[#141414]/70 backdrop-blur-md rounded-2xl shadow-lg border-t-4 border-green-500 hover:scale-105 hover:shadow-[0_10px_25px_rgba(0,255,128,0.3)] transition-transform duration-300"
-                >
-                  <h3 className="text-xl font-semibold text-green-400">
-                    {edu.title}
-                  </h3>
-                  <p className="text-gray-400 mt-1">{edu.date}</p>
-                  <p className="text-gray-300 mt-4">{edu.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -189,22 +166,23 @@ export default function Resume() {
                     <span className="text-green-400 font-semibold">
                       Zain Rafiq
                     </span>
-                    , a passionate Full Stack Developer with 1+ years of
-                    experience building modern, scalable web applications.
+                    , a passionate Frontend Developer with 1 year of hands-on
+                    experience building responsive, modern, and user-friendly
+                    web applications.
                   </p>
 
                   <p className="text-gray-400 leading-relaxed mt-4">
-                    Skilled in React, Next.js, PHP/MySQL, and cloud deployment
-                    platforms, I always focus on creating seamless user
-                    experiences with performance-driven coding and smooth
-                    animations.
+                    I specialize in React, Next.js, TailwindCSS, Bootstrap, and
+                    animations (GSAP, Framer Motion). My focus is always on
+                    writing clean code, delivering high performance, and
+                    creating smooth user experiences.
                   </p>
 
                   <p className="text-gray-400 leading-relaxed mt-4">
-                    Beyond coding, I enjoy exploring new technologies,
-                    contributing to open-source, and sharing knowledge. My goal
-                    is to bring creativity, innovation, and precision to every
-                    project I work on.
+                    Besides coding, I love exploring new technologies, improving
+                    my skills, and working on creative projects. My ultimate
+                    goal is to become a highly skilled Full Stack Developer and
+                    contribute to impactful digital solutions.
                   </p>
 
                   {/* Button + Social Icons */}
@@ -217,7 +195,15 @@ export default function Resume() {
                       {[
                         { icon: <FaLinkedin />, href: "#" },
                         { icon: <FaTwitter />, href: "#" },
-                        { icon: <FaInstagram />, href: "#" },
+                        {
+                          icon: <FaFacebook />,
+                          href: "https://www.facebook.com/profile.php?id=61579212897305",
+                        },
+
+                        {
+                          icon: <FaInstagram />,
+                          href: "https://www.instagram.com/zain_codes5/",
+                        },
                         { icon: <FaGithub />, href: "#" },
                       ].map((item, i) => (
                         <motion.a

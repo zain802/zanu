@@ -3,12 +3,39 @@
 import { motion } from "framer-motion";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
+import { useState } from "react";
 
 export default function Contact() {
+  const [loading, setLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      await fetch("https://formspree.io/f/meolqrqy", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      form.reset();
+      setIsModalOpen(true);
+    } catch (error) {
+      alert("Something went wrong, please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section
       id="contact"
-      className="bg-[#0d0d0d] text-white py-20 px-6 md:px-12 font-[Poppins]"
+      className="bg-[#0d0d0d] text-white py-20 px-6 md:px-12 font-[Poppins] relative"
     >
       <div className="max-w-6xl mx-auto">
         {/* Main Heading */}
@@ -34,8 +61,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <motion.form
-            action="https://formspree.io/f/meolqrqy" // <-- Tumhara Formspree endpoint
-            method="POST"
+            onSubmit={handleSubmit}
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
@@ -110,9 +136,10 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="group mt-8 w-full py-4 rounded-[50px] font-semibold bg-green-500 text-black flex items-center justify-center gap-2 hover:bg-green-400 hover:scale-[1.02] transition duration-300"
+              disabled={loading}
+              className="group mt-8 w-full py-4 rounded-[50px] font-semibold bg-green-500 text-black flex items-center justify-center gap-2 hover:bg-green-400 hover:scale-[1.02] transition duration-300 disabled:opacity-50"
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
               <FaArrowRight className="text-lg transform transition-transform duration-300 group-hover:translate-x-2" />
             </button>
           </motion.form>
@@ -133,17 +160,27 @@ export default function Contact() {
               just one message away.
             </p>
 
-            <div className="flex items-center gap-4">
+            {/* Phone (WhatsApp Link) */}
+            <a
+              href="https://wa.me/923457673703"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 hover:text-green-400 transition"
+            >
               <div className="w-14 h-14 flex items-center justify-center rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-2xl shadow-md shadow-green-500/10">
                 <FaPhoneAlt />
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Phone</p>
-                <p className="font-semibold">(+40) 31234567</p>
+                <p className="font-semibold">(+92) 3457673703</p>
               </div>
-            </div>
+            </a>
 
-            <div className="flex items-center gap-4">
+            {/* Email */}
+            <a
+              href="mailto:contact.zainrafiq@gmail.com"
+              className="flex items-center gap-4 hover:text-green-400 transition"
+            >
               <div className="w-14 h-14 flex items-center justify-center rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-2xl shadow-md shadow-green-500/10">
                 <FaEnvelope />
               </div>
@@ -151,8 +188,9 @@ export default function Contact() {
                 <p className="text-gray-400 text-sm">Email</p>
                 <p className="font-semibold">contact.zainrafiq@gmail.com</p>
               </div>
-            </div>
+            </a>
 
+            {/* Address */}
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 flex items-center justify-center rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-2xl shadow-md shadow-green-500/10">
                 <FaMapMarkerAlt />
@@ -165,6 +203,31 @@ export default function Contact() {
           </motion.div>
         </div>
       </div>
+
+      {/*  Success Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            className="bg-[#141414] p-8 rounded-2xl shadow-xl text-center max-w-md w-full border border-green-500/30"
+          >
+            <h2 className="text-2xl font-bold text-green-500 mb-4">
+              Submitted Successfully!
+            </h2>
+            <p className="text-gray-300 mb-6">
+              Thank you for reaching out. We’ll get back to you soon.
+            </p>
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="px-6 py-2 rounded-full bg-green-500 text-black font-semibold hover:bg-green-400 transition"
+            >
+              Close
+            </button>
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 }
